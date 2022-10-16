@@ -6,7 +6,7 @@
                 <v-card>
                     <v-card-title>
                         <v-icon>mdi-account-plus</v-icon>
-                        <span class="headline ml-1">Register</span>
+                        <span class="headline ml-1">Register Disini</span>
                     </v-card-title>
                     <v-card-text>
                         <v-form ref="form" v-model="valid" lazy-validation>
