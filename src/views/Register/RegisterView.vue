@@ -1,6 +1,9 @@
 <template>
     <!-- register vuetify with icon -->
-    <v-container>
+    <v-container class="hero">
+        <div>
+        <Header/>
+        </div>
         <v-row>
             <v-col cols="12" sm="8" md="6">
                 <v-card>
@@ -42,3 +45,26 @@
         </v-row>
     </v-container>
 </template>
+
+<script>
+
+import Header from '@/components/Header.vue';
+export default {
+    data: () => ({ 
+        components: [
+            {
+                Header,
+            }
+        ]
+    }),
+  }
+
+</script>
+
+<style scoped>
+.hero {
+    background: url('./../../assets/bg.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+  }
+</style>

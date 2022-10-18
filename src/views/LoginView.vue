@@ -51,11 +51,13 @@
              </v-flex>
            </v-layout>
          </v-container>
+       <Footer />
        </v-content>
      </v-app>
    </template>
    
    <script>
+import Footer from '@/components/Footer.vue';
    export default {
      name: 'App',
      data: () => ({
@@ -71,7 +73,10 @@
            alert('Username atau Password Salah')
          }
        }
-     }
+     },
+     components: {
+          Footer,
+        }
    }
    </script>
    

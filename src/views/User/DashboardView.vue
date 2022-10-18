@@ -102,7 +102,7 @@
         { id: 1, name: 'Nasi Padang', price: 10000, img: 'https://assets-pergikuliner.com/uploads/bootsy/image/18948/Nasi_Padang__pergikuliner.com_.jpeg' },
         { id: 2, name: 'Nasi Uduk', price: 15000, img: 'https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/2022/08/03/765351270.png' },
         { id: 3, name: 'Nasi Goreng', price: 14000, img: 'https://assets.pikiran-rakyat.com/crop/75x53:675x478/750x500/photo/2022/06/06/2861416974.jpg' },
-        ]
+        ],
     }),
   }
 </script>
