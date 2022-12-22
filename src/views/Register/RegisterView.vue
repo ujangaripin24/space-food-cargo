@@ -6,6 +6,11 @@
         </div>
         <v-row>
             <v-col cols="12" sm="8" md="6">
+                <v-form
+                ref="form"
+                v-model="valid"
+                lazy-validation
+                >
                 <v-card>
                     <v-card-title>
                         <v-icon>mdi-account-plus</v-icon>
@@ -34,6 +39,27 @@
                                 required
                                 @click:append="showPassword = !showPassword"
                             ></v-text-field>
+                            <v-text-field
+                                v-model="confPassword"
+                                :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                                :rules="passwordConfRules"
+                                :type="showPassword ? 'text' : 'password'"
+                                label="Conf Password"
+                                required
+                                @click:append="showPassword = !showPassword"
+                            ></v-text-field>
+                            <v-text-field
+                                v-model="number"
+                                :rules="numberRules"
+                                label="Number"
+                                required
+                            ></v-text-field>
+                            <v-text-field
+                                v-model="role"
+                                :rules="roleRules"
+                                label="Roles"
+                                required
+                            ></v-text-field>
                         </v-form>
                     </v-card-text>
                     <v-card-actions>
@@ -41,6 +67,7 @@
                         <v-btn color="primary" text @click="register">Register</v-btn>
                     </v-card-actions>
                 </v-card>
+                </v-form>
             </v-col>
         </v-row>
     </v-container>
@@ -49,15 +76,43 @@
 <script>
 
 import Header from '@/components/Header.vue';
+import axios from 'axios';
 export default {
-    data: () => ({ 
-        components: [
-            {
-                Header,
+    name: "createUser",
+    data () {
+        return {
+          nameRules: "",
+          emailRules: "",
+          passwordRules: "",
+          passwordConfRules: "",
+          numberRules: "",
+          roleRules: "",
+        };
+    },
+    methods:{
+        async register(){
+            try{
+                await axios.post("http://localhost:5500/user", {
+                    name: this.nameRules,
+                    email: this.emailRules,
+                    password: this.passwordRules,
+                    confPassword: this.passwordConfRules,
+                    number: this.numberRules,
+                    role: this.roleRules
+                });
+                this.nameRules;
+                this.emailRules;
+                this.passwordRules;
+                this.passwordRules;
+                this.numberRules;
+                this.roleRules;
+                this.$router.push("/user");
+            } catch (err){
+                console.log(err);
             }
-        ]
-    }),
-  }
+        },
+    },
+  };
 
 </script>
 

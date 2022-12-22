@@ -16,20 +16,7 @@
       
     >
     <v-list>
-      <v-list-item class="px-2">
-        <v-list-item-avatar>
-          <v-img src="https://randomuser.me/api/portraits/women/85.jpg"></v-img>
-        </v-list-item-avatar>
-      </v-list-item>
-
-      <v-list-item link>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            Sandra Adams
-          </v-list-item-title>
-          <v-list-item-subtitle>sandra_a88@gmail.com</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+      <Profile/>
     </v-list>
 
     <v-divider></v-divider>
@@ -59,6 +46,11 @@
       </div>
     </template>
     </v-navigation-drawer>
+
+      <div class="mt-4 ml-4">  
+        <v-btn color="primary"> Cari </v-btn>  
+      </div>
+
       <div class="ml-2">
         <v-container>
           <v-row>
@@ -88,8 +80,14 @@
 </template>
 
 <script>
+import Profile from '../../components/Profile.vue';
+
   export default {
     data: () => ({ 
+      name: 'app',
+      components:{
+        Profile
+      },
       drawer: null,
       // items with random id, title, icon, to
       items: [
